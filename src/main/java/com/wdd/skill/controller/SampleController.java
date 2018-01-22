@@ -32,6 +32,7 @@ public class SampleController {
 
     @RequestMapping("/thymeleaf")
     public String thymeleaf(Model model){
+        log.info("qwe");
         model.addAttribute("name","韦冬冬");
         return "hello";
     }
