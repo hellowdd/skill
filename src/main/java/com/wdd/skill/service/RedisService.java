@@ -1,7 +1,5 @@
 package com.wdd.skill.service;
 
-import com.alibaba.fastjson.JSON;
-import com.wdd.skill.config.RedisConfig;
 import com.wdd.skill.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

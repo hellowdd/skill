@@ -1,5 +1,6 @@
 package com.wdd.skill.config;
 
+import com.wdd.skill.util.domain.RedisConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

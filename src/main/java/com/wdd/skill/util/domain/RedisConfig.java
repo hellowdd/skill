@@ -1,4 +1,4 @@
-package com.wdd.skill.config;
+package com.wdd.skill.util.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
