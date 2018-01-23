@@ -1,6 +1,4 @@
-package com.wdd.skill.config;
-
-import groovy.util.logging.Slf4j;
+package com.wdd.skill.redis;
 
 
 public class UserKey extends BasePrefix {

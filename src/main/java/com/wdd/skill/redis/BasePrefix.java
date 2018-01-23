@@ -1,4 +1,4 @@
-package com.wdd.skill.config;
+package com.wdd.skill.redis;
 
 public abstract class BasePrefix implements KeyPrefix{
 	
