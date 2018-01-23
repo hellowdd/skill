@@ -1,6 +1,4 @@
-package com.wdd.skill.config;
-
-import com.wdd.skill.redis.BasePrefix;
+package com.wdd.skill.redis;
 
 public class OrderKey extends BasePrefix {
 
