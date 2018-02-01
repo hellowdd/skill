@@ -1,6 +1,7 @@
 package com.wdd.skill.controller;
 
 import com.wdd.skill.dao.UserDao;
+import com.wdd.skill.redis.UserKey;
 import com.wdd.skill.service.RedisService;
 import com.wdd.skill.util.JsonUtil;
 import com.wdd.skill.util.domain.User;
@@ -48,7 +49,7 @@ public class SampleController {
     @RequestMapping("/redisGet")
     @ResponseBody
     public Result<User> redisGet(){
-        User user= redisService.get("user",User.class);
+        User user= redisService.get(UserKey.getById,""+3,User.class);
         return Result.success(user);
     }
 
@@ -56,8 +57,8 @@ public class SampleController {
     @ResponseBody
     public void redisSet(){
         User user=new User();
-        user.setId(1);
-        user.setUserName("weidongdong");
-       redisService.set("user", JsonUtil.bean2String(user));
+        user.setId(2);
+        user.setUserName("weidongdong3");
+        redisService.set(UserKey.getById, ""+3, user);
     }
 }
