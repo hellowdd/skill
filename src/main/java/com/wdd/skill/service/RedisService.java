@@ -86,7 +86,7 @@ public class RedisService {
 
 
     /**
-     * 增加值
+     * 增加value的值+1
      */
     public <T> Long incr(KeyPrefix prefix, String key) {
         Jedis jedis = null;
@@ -103,7 +103,7 @@ public class RedisService {
     }
 
     /**
-     * 减少值
+     * 减少value的值-1
      */
     public <T> Long decr(KeyPrefix prefix, String key) {
         Jedis jedis = null;

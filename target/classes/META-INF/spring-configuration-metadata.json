@@ -2,48 +2,48 @@
   "hints": [],
   "groups": [
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "name": "redis",
-      "type": "com.wdd.skill.config.RedisConfig"
+      "type": "com.wdd.skill.util.domain.RedisConfig"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "name": "redis.host",
       "type": "java.lang.String"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "name": "redis.password",
       "type": "java.lang.String"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "defaultValue": 0,
       "name": "redis.pool-max-idle",
       "type": "java.lang.Integer"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "defaultValue": 0,
       "name": "redis.pool-max-total",
       "type": "java.lang.Integer"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "defaultValue": 0,
       "name": "redis.pool-max-wait",
       "type": "java.lang.Integer"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "defaultValue": 0,
       "name": "redis.port",
       "type": "java.lang.Integer"
     },
     {
-      "sourceType": "com.wdd.skill.config.RedisConfig",
+      "sourceType": "com.wdd.skill.util.domain.RedisConfig",
       "defaultValue": 0,
       "name": "redis.timeout",
       "type": "java.lang.Integer"
