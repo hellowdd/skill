@@ -1,5 +1,6 @@
 package com.wdd.skill.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.wdd.skill.dao.UserDao;
 import com.wdd.skill.redis.UserKey;
 import com.wdd.skill.service.RedisService;
@@ -55,10 +56,11 @@ public class SampleController {
 
     @RequestMapping("/redisSet")
     @ResponseBody
-    public void redisSet(){
+    public Result<Boolean> redisSet(){
         User user=new User();
         user.setId(2);
         user.setUserName("weidongdong3");
         redisService.set(UserKey.getById, ""+3, user);
+        return Result.success(true);
     }
 }

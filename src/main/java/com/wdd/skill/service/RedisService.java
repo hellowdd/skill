@@ -54,6 +54,7 @@ public class RedisService {
             int seconds =  prefix.expireSeconds();
             if(seconds <= 0) {
                 jedis.set(realKey, str);
+                //此时代表有有效期的缓存
             }else {
                 jedis.setex(realKey, seconds, str);
             }
