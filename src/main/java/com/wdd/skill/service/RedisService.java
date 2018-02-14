@@ -67,6 +67,60 @@ public class RedisService {
     }
 
 
+    /**
+     * 判断key是否存在
+     * */
+    public <T> boolean exists(KeyPrefix prefix, String key) {
+        Jedis jedis = null;
+        try {
+            jedis =  jedisPool.getResource();
+            //生成真正的key
+            String realKey  = prefix.getPrefix() + key;
+            return  jedis.exists(realKey);
+        }finally {
+            if(jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+
+    /**
+     * 增加值
+     * */
+    public <T> Long incr(KeyPrefix prefix, String key) {
+        Jedis jedis = null;
+        try {
+            jedis =  jedisPool.getResource();
+            //生成真正的key
+            String realKey  = prefix.getPrefix() + key;
+            return  jedis.incr(realKey);
+        }finally {
+            if(jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    /**
+     * 减少值
+     * */
+    public <T> Long decr(KeyPrefix prefix, String key) {
+        Jedis jedis = null;
+        try {
+            jedis =  jedisPool.getResource();
+            //生成真正的key
+            String realKey  = prefix.getPrefix() + key;
+            return  jedis.decr(realKey);
+        }finally {
+            if(jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+
+
 
 
 
