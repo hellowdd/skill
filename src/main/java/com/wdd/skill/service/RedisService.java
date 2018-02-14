@@ -21,18 +21,18 @@ public class RedisService {
 
     /**
      * 获取当个对象
-     * */
+     */
     public <T> T get(KeyPrefix prefix, String key, Class<T> clazz) {
         Jedis jedis = null;
         try {
-            jedis =  jedisPool.getResource();
+            jedis = jedisPool.getResource();
             //生成真正的key
-            String realKey  = prefix.getPrefix() + key;
-            String  str = jedis.get(realKey);
-            T t =  JsonUtil.string2Bean(str, clazz);
+            String realKey = prefix.getPrefix() + key;
+            String str = jedis.get(realKey);
+            T t = JsonUtil.string2Bean(str, clazz);
             return t;
-        }finally {
-            if(jedis != null) {
+        } finally {
+            if (jedis != null) {
                 jedis.close();
             }
         }
@@ -40,27 +40,27 @@ public class RedisService {
 
     /**
      * 设置对象
-     * */
-    public <T> boolean set(KeyPrefix prefix, String key,  T value) {
+     */
+    public <T> boolean set(KeyPrefix prefix, String key, T value) {
         Jedis jedis = null;
         try {
-            jedis =  jedisPool.getResource();
+            jedis = jedisPool.getResource();
             String str = JsonUtil.bean2String(value);
-            if(str == null || str.length() <= 0) {
+            if (str == null || str.length() <= 0) {
                 return false;
             }
             //生成真正的key
-            String realKey  = prefix.getPrefix() + key;
-            int seconds =  prefix.expireSeconds();
-            if(seconds <= 0) {
+            String realKey = prefix.getPrefix() + key;
+            int seconds = prefix.expireSeconds();
+            if (seconds <= 0) {
                 jedis.set(realKey, str);
                 //此时代表有有效期的缓存
-            }else {
+            } else {
                 jedis.setex(realKey, seconds, str);
             }
             return true;
-        }finally {
-            if(jedis != null) {
+        } finally {
+            if (jedis != null) {
                 jedis.close();
             }
         }
@@ -69,16 +69,16 @@ public class RedisService {
 
     /**
      * 判断key是否存在
-     * */
+     */
     public <T> boolean exists(KeyPrefix prefix, String key) {
         Jedis jedis = null;
         try {
-            jedis =  jedisPool.getResource();
+            jedis = jedisPool.getResource();
             //生成真正的key
-            String realKey  = prefix.getPrefix() + key;
-            return  jedis.exists(realKey);
-        }finally {
-            if(jedis != null) {
+            String realKey = prefix.getPrefix() + key;
+            return jedis.exists(realKey);
+        } finally {
+            if (jedis != null) {
                 jedis.close();
             }
         }
@@ -87,16 +87,16 @@ public class RedisService {
 
     /**
      * 增加值
-     * */
+     */
     public <T> Long incr(KeyPrefix prefix, String key) {
         Jedis jedis = null;
         try {
-            jedis =  jedisPool.getResource();
+            jedis = jedisPool.getResource();
             //生成真正的key
-            String realKey  = prefix.getPrefix() + key;
-            return  jedis.incr(realKey);
-        }finally {
-            if(jedis != null) {
+            String realKey = prefix.getPrefix() + key;
+            return jedis.incr(realKey);
+        } finally {
+            if (jedis != null) {
                 jedis.close();
             }
         }
@@ -104,16 +104,16 @@ public class RedisService {
 
     /**
      * 减少值
-     * */
+     */
     public <T> Long decr(KeyPrefix prefix, String key) {
         Jedis jedis = null;
         try {
-            jedis =  jedisPool.getResource();
+            jedis = jedisPool.getResource();
             //生成真正的key
-            String realKey  = prefix.getPrefix() + key;
-            return  jedis.decr(realKey);
-        }finally {
-            if(jedis != null) {
+            String realKey = prefix.getPrefix() + key;
+            return jedis.decr(realKey);
+        } finally {
+            if (jedis != null) {
                 jedis.close();
             }
         }
