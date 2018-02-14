@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wdd.skill.dao.MiaoshaUserMapper" >
+  <resultMap id="BaseResultMap" type="com.wdd.skill.util.domain.MiaoshaUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nick_name" property="nick_name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="head" property="head" jdbcType="VARCHAR" />
+    <result column="register_date" property="register_date" jdbcType="TIMESTAMP" />
+    <result column="login_count" property="login_count" jdbcType="INTEGER" />
+    <result column="last_login_date" property="last_login_date" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nick_name, password, salt, head, register_date, login_count, last_login_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from miaosha_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from miaosha_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wdd.skill.util.domain.MiaoshaUser" >
+    insert into miaosha_user (id, nick_name, password, 
+      salt, head, register_date, 
+      login_count, last_login_date)
+    values (#{id,jdbcType=BIGINT}, #{nick_name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{register_date,jdbcType=TIMESTAMP}, 
+      #{login_count,jdbcType=INTEGER}, #{last_login_date,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wdd.skill.util.domain.MiaoshaUser" >
+    insert into miaosha_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nick_name != null" >
+        nick_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="head != null" >
+        head,
+      </if>
+      <if test="register_date != null" >
+        register_date,
+      </if>
+      <if test="login_count != null" >
+        login_count,
+      </if>
+      <if test="last_login_date != null" >
+        last_login_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nick_name != null" >
+        #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null" >
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="register_date != null" >
+        #{register_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="login_count != null" >
+        #{login_count,jdbcType=INTEGER},
+      </if>
+      <if test="last_login_date != null" >
+        #{last_login_date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wdd.skill.util.domain.MiaoshaUser" >
+    update miaosha_user
+    <set >
+      <if test="nick_name != null" >
+        nick_name = #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null" >
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="register_date != null" >
+        register_date = #{register_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="login_count != null" >
+        login_count = #{login_count,jdbcType=INTEGER},
+      </if>
+      <if test="last_login_date != null" >
+        last_login_date = #{last_login_date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wdd.skill.util.domain.MiaoshaUser" >
+    update miaosha_user
+    set nick_name = #{nick_name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      register_date = #{register_date,jdbcType=TIMESTAMP},
+      login_count = #{login_count,jdbcType=INTEGER},
+      last_login_date = #{last_login_date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
