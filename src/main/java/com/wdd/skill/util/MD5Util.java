@@ -34,9 +34,19 @@ public class MD5Util {
         return md5(str);
     }
 
+    /**
+     * 二次加密保存到数据库md5加密
+     * @param pass
+     * @param salt
+     * @return
+     */
     public static String formPass2DbPass(String pass, String salt) {
         String str = salt.charAt(0) + salt.charAt(1) + pass + salt.charAt(5) + salt.charAt(4);
         return md5(str);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(formPass2DbPass(inputPass2formPass("123456"),"123456"));
     }
 
 }
