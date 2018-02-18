@@ -10,10 +10,11 @@ import org.apache.commons.codec.digest.DigestUtils;
  **/
 public class MD5Util {
 
-    private static final String salt="1a12234";
+    private static final String salt = "1a12234";
 
     /**
      * 将字符串转化为md5
+     *
      * @param str
      * @return
      */
@@ -24,11 +25,17 @@ public class MD5Util {
 
     /**
      * 将输入的密码转化为加密的密码
+     *
      * @param pass
      * @return
      */
-    public static String inputPass2formPass(String pass){
-        String str=salt.charAt(0)+salt.charAt(1)+pass+salt.charAt(5)+salt.charAt(4);
+    public static String inputPass2formPass(String pass) {
+        String str = salt.charAt(0) + salt.charAt(1) + pass + salt.charAt(5) + salt.charAt(4);
+        return md5(str);
+    }
+
+    public static String formPass2DbPass(String pass, String salt) {
+        String str = salt.charAt(0) + salt.charAt(1) + pass + salt.charAt(5) + salt.charAt(4);
         return md5(str);
     }
 
