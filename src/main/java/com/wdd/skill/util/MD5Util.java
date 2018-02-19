@@ -10,7 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  **/
 public class MD5Util {
 
-    private static final String salt = "1a12234";
+    private static final String salt = "1a2b3c4d";
 
     /**
      * 将字符串转化为md5
@@ -36,6 +36,7 @@ public class MD5Util {
 
     /**
      * 二次加密保存到数据库md5加密
+     *
      * @param pass
      * @param salt
      * @return
@@ -46,7 +47,7 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        System.out.println(formPass2DbPass(inputPass2formPass("123456"),"123456"));
+        System.out.println(formPass2DbPass(inputPass2formPass("123456"), "123456"));
     }
 
 }
